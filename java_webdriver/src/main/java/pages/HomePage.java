@@ -13,26 +13,22 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
     private WebDriver driver;
-    private By formAuthenticationLink = By.linkText("Form Authentication");
-    private By basicAuthenticationLink = By.linkText("Basic Auth");
-    private By digestAuthenticationLink = By.linkText("Digest Authentication");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     public LoginPage clickFormAuthentication() {
-        driver.findElement(formAuthenticationLink).click();
+        clickLink("Form Authentication");
         return new LoginPage(driver);
     }
 
-    public LoginPage clickBasicAuthenticationLink() {
-        driver.findElement(basicAuthenticationLink).click();
-        return new LoginPage(driver);
+    public DropDownPage clickDropdownPage(){
+        clickLink("Dropdown");
+        return new DropDownPage(driver);
     }
 
-    public LoginPage clickDigestAuthenticationLink() {
-        driver.findElement(digestAuthenticationLink).click();
-        return new LoginPage(driver);
+    private void clickLink(String linkText){
+        driver.findElement(By.linkText(linkText)).click();
     }
 }
