@@ -23,9 +23,14 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
-    public DropDownPage clickDropdownPage(){
+    public DropDownPage clickDropdownLink(){
         clickLink("Dropdown");
         return new DropDownPage(driver);
+    }
+
+    public HoversPage clickHoversLink(){
+        clickLink("Hovers");
+        return new HoversPage(driver);
     }
 
     private void clickLink(String linkText){

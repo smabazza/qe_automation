@@ -11,7 +11,7 @@ public class DropDownTests extends BaseTest {
     @Test
     public void testSelectOptionOne(){
         // Arrange
-        DropDownPage dropDownPage = homePage.clickDropdownPage();
+        DropDownPage dropDownPage = homePage.clickDropdownLink();
         String option = "Option 1";
 
         // Act
@@ -25,7 +25,7 @@ public class DropDownTests extends BaseTest {
     @Test
     public void testSelectOptionTwo(){
         // Arrange
-        DropDownPage dropDownPage = homePage.clickDropdownPage();
+        DropDownPage dropDownPage = homePage.clickDropdownLink();
         String option = "Option 2";
 
         // Act
