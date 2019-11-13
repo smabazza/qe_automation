@@ -33,6 +33,11 @@ public class HomePage {
         return new HoversPage(driver);
     }
 
+    public WysiwygEditorPage clickWysiwygEditorPageLink(){
+        clickLink("WYSIWYG Editor");
+        return new WysiwygEditorPage(driver);
+    }
+
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
