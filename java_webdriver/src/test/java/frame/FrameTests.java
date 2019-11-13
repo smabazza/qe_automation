@@ -2,9 +2,14 @@ package frame;
 
 import base.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.WysiwygEditorPage;
+import utils.WindowManager;
 
 import java.util.List;
 
@@ -17,6 +22,7 @@ public class FrameTests extends BaseTest {
     private By numberListButton = By.cssSelector("#mceu_10 button");
     private By ULElement = By.tagName("ul");
     private By OLElement = By.tagName("ol");
+
 
 
     @Test
@@ -38,7 +44,8 @@ public class FrameTests extends BaseTest {
         textEditor.clickListButton(bulletListButton); // Comment this line to test that the page object methods are correct.
         textEditor.setInputText(text1);
         List<WebElement> listElements = textEditor.findListElement(ULElement);
-        assertEquals(textEditor.countBulletItems(listElements), 1, "There is no bullet item in the editor");
+        assertEquals(textEditor.countListItems(listElements), 1, "There is no bullet item in the editor");
+
     }
 
     @Test
@@ -48,6 +55,7 @@ public class FrameTests extends BaseTest {
         textEditor.clickListButton(numberListButton); // Comment this line to test that the page object methods are correct.
         textEditor.setInputText(text1);
         List<WebElement> listElements = textEditor.findListElement(OLElement);
-        assertEquals(textEditor.countBulletItems(listElements), 1, "There is no numbered item in the editor");
+        assertEquals(textEditor.countListItems(listElements), 1, "There is no numbered item in the editor");
+
     }
 }

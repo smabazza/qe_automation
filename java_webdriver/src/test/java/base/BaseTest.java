@@ -11,13 +11,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import pages.HomePage;
+import utils.WindowManager;
 
 public class BaseTest {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     protected HomePage homePage;   // protected so that test classes that inherit from this class will have access to homePage
+    private String url = "https://the-internet.herokuapp.com";;
 
     @BeforeClass
     public void setUp() {
@@ -29,13 +33,23 @@ public class BaseTest {
         // System.setProperty("webdriver.gecko.driver", "./resources/webdrivers/geckodriver.exe");
         // driver = new FirefoxDriver();
 
-        driver.get("https://the-internet.herokuapp.com");
+        driver.get(url);
         homePage = new HomePage(driver);
     }
 
     @AfterClass
     public void tearDown() {
         driver.quit();
+    }
+
+    @AfterMethod
+    public void goToHomePage(){
+        getWindowManager().goHome(url);
+        getWindowManager().refreshPage();
+    }
+
+    public WindowManager getWindowManager(){
+        return new WindowManager(driver);
     }
 }
 
