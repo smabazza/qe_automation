@@ -30,5 +30,4 @@ public class DropDownPage {
         return new Select(driver.findElement(dropDownBox));
     }
 
-
 }

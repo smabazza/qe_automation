@@ -59,10 +59,11 @@ public class WysiwygEditorPage {
     public List<WebElement> findListElement(By element){
         switchToEditArea();
         List<WebElement> listElements = (List<WebElement>) driver.findElement(element).findElements(listElement);
+        switchToMainArea();;
         return listElements;
     }
 
-    public int countBulletItems(List<WebElement> list) {
+    public int countListItems(List<WebElement> list) {
         return list.size();
     }
 
