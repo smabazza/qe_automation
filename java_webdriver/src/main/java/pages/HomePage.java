@@ -38,6 +38,11 @@ public class HomePage {
         return new WysiwygEditorPage(driver);
     }
 
+    public FramesPage clickFramesLink() {
+        clickLink("Frames");
+        return new FramesPage(driver);
+    }
+
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
