@@ -43,6 +43,11 @@ public class HomePage {
         return new FramesPage(driver);
     }
 
+    public ForgotPasswordPage clickForgotPasswordLink() {
+        clickLink("Forgot Password");
+        return new ForgotPasswordPage(driver);
+    }
+
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
