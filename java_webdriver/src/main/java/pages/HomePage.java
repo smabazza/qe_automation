@@ -10,6 +10,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.security.Key;
+
 public class HomePage {
 
     private WebDriver driver;
@@ -46,6 +48,16 @@ public class HomePage {
     public ForgotPasswordPage clickForgotPasswordLink() {
         clickLink("Forgot Password");
         return new ForgotPasswordPage(driver);
+    }
+
+    public KeyPressesPage clickKeyPressesLink() {
+        clickLink("Key Presses");
+        return new KeyPressesPage(driver);
+    }
+
+    public HorizontalSliderPage clickHorizontalSliderLink(){
+        clickLink("Horizontal Slider");
+        return new HorizontalSliderPage(driver);
     }
 
     private void clickLink(String linkText){
