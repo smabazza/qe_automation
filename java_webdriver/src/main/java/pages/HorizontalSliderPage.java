@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 public class HorizontalSliderPage {
 
     private WebDriver driver;
+    private String invalidSliderValue;
     private By horizontalSlider = By.cssSelector(".sliderContainer input");
     private By sliderText = By.id("range");
 
@@ -17,7 +18,7 @@ public class HorizontalSliderPage {
 
     public void pressKey(String numberOfPresses) {
         if(numberOfPresses.contains("-")) {
-            System.out.println("Invalid slider value entered...");
+            invalidSliderValue = "Invalid slider value entered...";
         }
         else {
             while (!getSliderText().equals(numberOfPresses)) {
@@ -31,6 +32,6 @@ public class HorizontalSliderPage {
     }
 
     public String getInvalidSliderText(){
-        return "Invalid slider value entered...";
+        return invalidSliderValue;
     }
 }
