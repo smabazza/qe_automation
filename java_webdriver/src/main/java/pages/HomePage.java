@@ -74,6 +74,13 @@ public class HomePage {
         clickLink("Infinite Scroll");
         return new InfiniteScrollPage(driver);
     }
+
+    public ABTestingPage clickABTestingLink(){
+        clickLink("A/B Testing");
+        return new ABTestingPage(driver);
+    }
+
+
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
