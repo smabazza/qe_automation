@@ -80,6 +80,11 @@ public class HomePage {
         return new ABTestingPage(driver);
     }
 
+    public JSAlertsPage clickJSAlertsLink(){
+        clickLink("JavaScript Alerts");
+        return new JSAlertsPage(driver);
+    }
+
 
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
